@@ -1,0 +1,69 @@
+.axis path,
+		.axis line {
+			fill: none;
+			stroke: #414141;
+			shape-rendering: crispEdges;
+		}
+		.axis text {
+			font-size: 10px;
+			fill: #fff;
+		}
+
+		.countries {
+			pointer-events: none;
+		}
+
+		.guide {
+			pointer-events: none;
+			font-size: 14px;
+			font-weight: 600;
+		}
+		
+		.popover {
+			pointer-events: none;
+		}
+		
+		.legendCircle {
+			stroke-width:1;
+			stroke:#999;
+			stroke-dasharray:2 2;
+			fill:none;
+		}
+
+		.legendLine {
+			stroke-width: 1;
+			stroke: #D1D1D1;
+			shape-rendering: crispEdges;
+		}
+
+		.legendTitle {
+			fill: #1A1A1A;
+			color: #1A1A1A;
+			text-anchor: middle;
+			font-size: 10px;
+		}
+
+		.legendText {
+			fill: #414141;
+			text-anchor: start;
+			font-size: 9px;
+		}
+		
+		@media (min-width: 500px) {
+		  .col-sm-3, .col-sm-9 {
+			float: left;
+		  }
+		  .col-sm-9 {
+			width: 75%;
+		  }
+		  .col-sm-3 {
+			width: 25%;
+		  }
+		}
+		
+		.popover-content {background-color: #000; color:#fff}
+.popover{border:none; background-color: #000;}
+.popover.top>.arrow:after {
+    border-top-color: #000;
+    border-bottom-width: 0;
+}

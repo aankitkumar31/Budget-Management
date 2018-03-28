@@ -1,0 +1,23 @@
+.navExpense li {
+    width: 50%;
+}
+.faTableIcon {
+    font-size: 20px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+.center{
+    text-align: center;
+}
+.faUpdate{
+    
+}
+.faDelete{
+    color: red;
+}
+.faComplete{
+    color: #37ce8a;
+}
+.updateBtn{
+    display: none;
+}
