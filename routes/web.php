@@ -23,6 +23,8 @@ Route::get('/expense', 'expenseContoller@index')->name('expense');
 
 Route::get('/logout', 'HomeController@logout');
 
+Route::post('/searchHome', 'HomeController@search');
+
 Route::post('/search', 'expenseContoller@search');
 
 Route::post('/saveExpense', 'expenseContoller@save');

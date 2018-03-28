@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Auth;
+use Mail;   
+use App\Mail\DemoMail;  
 
 class RegisterController extends Controller
 {
@@ -62,10 +65,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $message = 'You have successfully registered with us.';        
+        //dd($name);
+        // $sent = Mail::raw('Text', function ($message){
+        //     $message->to('ankit@qexon.com');
+        // });    
+        
+        $data = [
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password']
+        ];
+        
+        $sent = Mail::send('emails.demo', $data, function($message) use ($data)
+        {   
+            $email = $data['email'];
+            $name = $data['name'];
+            $message->from('aankitkumar31@gmail.com');
+            $message->to($email, $name)->subject('Registered Successfully !!!');
+        });
+
+        return $user;
     }
 }

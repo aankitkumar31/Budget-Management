@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
+use Mail;   
+use App\Mail\DemoMail;  
 class expenseContoller extends Controller
 {
     public function index()
-    {
-        return view('expense');
+    {                        
+        return view('expense');  
     }
 
     public function search(){
