@@ -32,4 +32,9 @@ class HomeController extends Controller
     {
         echo "ankit";
     }
+
+    public function daily_expense()
+    {
+        return view('daily_expense');
+    }
 }

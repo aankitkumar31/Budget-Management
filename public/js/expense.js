@@ -1,19 +1,8 @@
 var myExpenseTable;
-var baseUrl = window.location.protocol + "//" + window.location.host + "/";
-$(document).ready(function () {
-    $("#alert-box").hide();
 
-    bindExpenses('', '', '');
+$(document).ready(function () {   
 
-    $(".nav-tabs a").click(function () {
-        $(this).tab('show');
-    });
-
-    $('.datepicker').datepicker({
-        autoclose: true
-    });
-
-    $('#txtTransactionDate').val(todayDate())
+    bindExpenses('', '', '');  
 
     myExpenseTable = $('#myExpenseTable').dataTable({
         "bFilter": true,
@@ -105,7 +94,10 @@ $(document).ready(function () {
                 clearDetails()
                 $('.spnAlertBox').text("Saved Successfully...!!!")
                 $("#alert-box").show();
-                setTimeout(function () { $("#alert-box").hide(); }, 3000);
+                setTimeout(function () {
+                    $("#alert-box").hide();
+                    $($('.nav-tabs a')[0]).click();
+                }, 3000);
             }
         });
     })
@@ -250,6 +242,8 @@ function bindExpenses(fromDate, toDate, transType) {
             var parseData = result;
             myExpenseTable.fnClearTable();
             var totalAmount = 0;
+            var crAmount = 0;
+            var dbAmount = 0;
             $.each(parseData, function (i, v) {
                 var payeeName = v.payee_name;
                 var amount = v.amount;
@@ -267,6 +261,12 @@ function bindExpenses(fromDate, toDate, transType) {
                 var status = '';
 
                 totalAmount += parseInt(amount);
+                if (transType == 'Cr') {
+                    crAmount += parseInt(amount);
+                }
+                else {
+                    dbAmount += parseInt(amount);
+                }
 
                 if (expenseStatus == 'C') {
                     status = '<span>' + completedDate + '</span>'
@@ -282,6 +282,8 @@ function bindExpenses(fromDate, toDate, transType) {
                 myExpenseTable.fnAddData([i + 1, payeeName, amount, transType, transMode, remarks, createdDate, status])
             })
             $('#txtTotalAmount').text(totalAmount);
+            $('#lblTotalCr').text('Rs. ' + crAmount);
+            $('#lblTotalDb').text('Rs. ' + dbAmount);
         }
     });
 }
@@ -308,3 +310,5 @@ function deleteExpense(id) {
         }
     });
 }
+
+

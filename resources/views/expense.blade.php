@@ -82,12 +82,12 @@
                 </thead>
                 <tfoot>
                 <tr>
-                    <td></td>
-                    <td>Total</td>
-                    <td id="txtTotalAmount">1300</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><label>Total : </label></td>
+                    <td id="txtTotalAmount">0</td>
+                    <td><label>Total Credit : </label></td>
+                    <td id="lblTotalCr"></td>
+                    <td><label>Total Debit : </label></td>
+                    <td id="lblTotalDb"></td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -183,3 +183,7 @@
     </div>
 </div>
 @endsection
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('js/expense.js') }}"></script>

@@ -22,6 +22,7 @@
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css" />
+
     
 </head>
 <body class="fixed-left">
@@ -110,6 +111,7 @@
                                 <a href="javascript:void(0);" class="waves-effect active subdrop"><i class="mdi mdi-view-dashboard"></i><span> Expenses </span><span class="menu-arrow"></span> </a>
                                 <ul class="list-unstyled">
                                     <li><a href="expense" {{ route('expense') }}>Expenses</a></li>
+                                    <li><a href="daily_expense" {{ route('expense') }}>Daily Expenses</a></li>
                                     <!-- <li><a href="#">Profile</a></li> -->
                                 </ul>
                             </li>
@@ -188,5 +190,6 @@
     <script src="{{ asset('js/jquery.core.js') }}"></script>
     <script src="{{ asset('js/jquery.app.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/expense.js') }}"></script>
+    <script src="{{ asset('js/common.js') }}"></script>
+    
 </html>

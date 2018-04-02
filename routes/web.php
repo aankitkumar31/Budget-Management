@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/expense', 'expenseContoller@index')->name('expense');
 
+Route::get('/daily_expense', 'dailyExpese@index')->name('daily_expense');
+
 Route::get('/logout', 'HomeController@logout');
 
 Route::post('/searchHome', 'HomeController@search');
@@ -28,6 +30,10 @@ Route::post('/searchHome', 'HomeController@search');
 Route::post('/search', 'expenseContoller@search');
 
 Route::post('/saveExpense', 'expenseContoller@save');
+
+Route::post('/saveDailyExpense', 'dailyExpese@save');
+
+Route::get('/showDailyExpenses', 'dailyExpese@show');
 
 Route::post('/saveCompletedExpenses', 'expenseContoller@saveCompletedExpenses');
 
